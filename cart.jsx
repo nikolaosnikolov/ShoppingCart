@@ -93,7 +93,9 @@ const Products = (props) => {
     let name = e.target.name;
     let item = items.filter((item) => item.name == name);
     console.log(`add to Cart ${JSON.stringify(item)}`);
+    item.splice(1)
     setCart([...cart, ...item]);
+    console.log('...item', ...item)
     //doFetch(query);
   };
   const deleteCartItem = (index) => {
@@ -155,6 +157,8 @@ const Products = (props) => {
       let { name, country, cost, instock } = attributes;
       return { name, country, cost, instock };
     });
+    newItems = newItems.splice(1)
+    // setItems([...items, ...newItems]);
     setItems([...items, ...newItems]);
   };
 
