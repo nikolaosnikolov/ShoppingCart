@@ -1,4 +1,3 @@
-// simulate getting products from DataBase
 const products = [
   { name: 'Apples_:', country: 'Italy', cost: 3, instock: 10 },
   { name: 'Oranges:', country: 'Spain', cost: 4, instock: 3 },
@@ -33,8 +32,6 @@ const useDataApi = (initialUrl, initialData) => {
         const result = await axios(url);
         console.log('FETCH FROM URl');
         if (!didCancel) {
-          // result.data.data
-          // first data is from axios object, second data is from strapi object
           dispatch({ type: 'FETCH_SUCCESS', payload: result.data.data });
         }
       } catch (error) {
@@ -105,8 +102,6 @@ const Products = (props) => {
   const photos = ['apple.png', 'orange.png', 'beans.png', 'cabbage.png'];
 
   let list = items.map((item, index) => {
-    //let n = index + 1049;
-    //let url = "https://picsum.photos/id/" + n + "/50/50";
     return (
       <li key={index}>
         <Image src={photos[index % 4]} width={70} roundedCircle></Image>
@@ -157,8 +152,6 @@ const Products = (props) => {
       let { name, country, cost, instock } = attributes;
       return { name, country, cost, instock };
     });
-    newItems = newItems.splice(1)
-    // setItems([...items, ...newItems]);
     setItems([...items, ...newItems]);
   };
 
