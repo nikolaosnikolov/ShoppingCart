@@ -85,7 +85,6 @@ const Products = (props) => {
     data: [],
   });
   console.log(`Rendering Products ${JSON.stringify(data)}`);
-  // Fetch Data
   const addToCart = (e) => {
     let name = e.target.name;
     let item = items.filter((item) => item.name == name);
@@ -93,7 +92,6 @@ const Products = (props) => {
     item.splice(1)
     setCart([...cart, ...item]);
     console.log('...item', ...item)
-    //doFetch(query);
   };
   const deleteCartItem = (index) => {
     let newCart = cart.filter((item, i) => index != i);
